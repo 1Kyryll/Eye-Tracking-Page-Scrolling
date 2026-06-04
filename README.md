@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <img src="./docs/demo_opt.gif" alt="Eye Scroll demo" width="720">
+  <img src="./docs/demo.gif" alt="Eye Scroll demo" width="720">
 </p>
 
 <p align="center">
@@ -28,14 +28,32 @@ extension, no special hardware, no setup.
 - 🧘 **Calm by design** — a center "reading zone" holds the page still while you read.
 - 🔒 **100% local** — all processing is on-device. No video ever leaves your machine.
 
-### ⬇️ Install in 10 seconds
+## 🚀 Quick start
+
+**Option A — Download (recommended)**
 
 1. **[Download the latest release](../../releases/latest)** for your OS.
 2. Double-click to run. A tray icon appears.
-3. Look straight ahead for 2 seconds while it calibrates — then look up/down to scroll.
+3. Look straight ahead for ~2 seconds while it auto-calibrates.
 
-> 💡 The scroll goes to whatever window is **under your mouse pointer**, so just hover the
-> pointer over the page you want to scroll. No clicking needed.
+**Option B — Run from source**
+
+```bash
+pip install -r requirements.txt
+python eyescroll_app.py
+```
+
+**Then scroll with your eyes:**
+
+| Do this | Result |
+|---------|--------|
+| Hover your **mouse pointer** over the page/editor/chat | That's the target — no click needed |
+| Look **down** 👇 | Scroll down |
+| Look **up** 👆 | Scroll up |
+| Look **center** 👀 | Stop (the calm "reading zone") |
+| **Right-click the tray icon** | Pause · Recalibrate · Show preview · Quit |
+
+> 💡 The scroll always goes to whatever window is **under your mouse pointer**.
 
 ⭐ **If this is useful or fun, please star the repo** — it genuinely helps other people find it.
 
@@ -75,37 +93,6 @@ These are inherent to any app that uses the camera and controls input — not bu
   *right-click → Open* the first time.
 - **Linux:** requires an **X11** session (scrolling via `pyautogui` doesn't work on
   Wayland) plus `libGL`, `scrot`, and `python3-tk` installed.
-
-## Run from source
-
-```bash
-pip install -r requirements.txt
-python eyescroll_app.py
-```
-
-## Building the apps
-
-Builds are produced per-OS by **GitHub Actions** (`.github/workflows/build.yml`):
-
-- Push this repo to GitHub.
-- Run the **Build** workflow manually (Actions tab → Build → *Run workflow*) to get
-  downloadable artifacts for all three OSes, **or**
-- Push a version tag to also create a Release with the files attached:
-  ```bash
-  git tag v0.1.0 && git push origin v0.1.0
-  ```
-
-### Build locally instead
-
-On the target OS:
-
-```bash
-pip install -r requirements.txt pyinstaller
-# download the model next to the spec first:
-python -c "import urllib.request; urllib.request.urlretrieve('https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task','face_landmarker.task')"
-pyinstaller eyescroll.spec
-# → dist/EyeScroll(.exe)  or  dist/EyeScroll.app
-```
 
 ## Tuning
 
