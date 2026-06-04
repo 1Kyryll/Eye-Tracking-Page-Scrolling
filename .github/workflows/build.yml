@@ -5,6 +5,9 @@ on:
   push:
     tags: ["v*"]            # …and on a version tag, attach to a Release
 
+permissions:
+  contents: write            # required so the workflow can publish a Release
+
 jobs:
   build:
     name: Build (${{ matrix.os }})

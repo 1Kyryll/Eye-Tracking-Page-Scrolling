@@ -83,8 +83,6 @@ pip install -r requirements.txt
 python eyescroll_app.py
 ```
 
-(`eye_scroll.py` is the original single-window version, kept for reference/tuning.)
-
 ## Building the apps
 
 Builds are produced per-OS by **GitHub Actions** (`.github/workflows/build.yml`):
