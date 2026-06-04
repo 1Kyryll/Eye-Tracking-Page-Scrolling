@@ -124,39 +124,6 @@ Edit `config.json` in your per-user app folder (created on first run):
 | `scroll_max_step` | Top scroll speed. |
 | `ema_alpha_brake` | Higher = stops faster when you look back to center (less overshoot). |
 
-## Make the demo GIF (do this first!)
-
-A short looping GIF at the top of the README is the **single biggest driver of stars**
-for a visual tool. Aim for ~6–10 seconds: your eyes moving + a long article scrolling
-in sync. Optionally show your face in a corner so people see it's eye-driven.
-
-1. Record your screen (e.g. [ScreenToGif](https://www.screentogif.com/) on Windows,
-   [Kap](https://getkap.co/) on macOS, [Peek](https://github.com/phw/peek) on Linux).
-2. Keep it small (≤ 720px wide, a few MB) so it loads fast.
-3. Save it as `docs/demo.gif` — the README already points there.
-
-## ⭐ Spread the word
-
-If you want this to reach people, these move the needle far more than anything in the code:
-
-- **Add repo topics** (repo page → ⚙️ next to *About*):
-  `eye-tracking` `accessibility` `computer-vision` `mediapipe` `python` `webcam`
-  `hands-free` `scrolling` `opencv` `assistive-technology`
-- **Write a one-line About** with a link to the release.
-- **Post it** with the GIF — the accessibility + "scroll with your eyes" hook travels well:
-  - **Show HN** (news.ycombinator.com/submit), title:
-    > Show HN: Eye Scroll – scroll any page with your eyes using just a webcam
-  - **Reddit:** r/SideProject, r/programming, r/opensource, r/accessibility
-  - **X/Twitter / Bluesky / LinkedIn:** lead with the GIF, tag #buildinpublic, #accessibility
-
-Sample blurb to paste:
-
-> I built **Eye Scroll**, a free open-source app that lets you scroll any page with your
-> eyes using only your webcam — no extra hardware. It runs in your system tray and works
-> in Chrome, VS Code, PDFs, anything. All processing is on-device. Look down to scroll
-> down, up to scroll up; a center "reading zone" keeps the page still while you read.
-> Windows/macOS/Linux: [link]
-
 ## License
 
 [MIT](LICENSE) — free to use, modify, and distribute.
