@@ -1,0 +1,65 @@
+name: Build
+
+on:
+  workflow_dispatch:        # build manually from the Actions tab
+  push:
+    tags: ["v*"]            # …and on a version tag, attach to a Release
+
+jobs:
+  build:
+    name: Build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            artifact: EyeScroll-windows
+          - os: macos-latest
+            artifact: EyeScroll-macos
+          - os: ubuntu-latest
+            artifact: EyeScroll-linux
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"   # MediaPipe ships wheels for 3.11
+
+      - name: Install Linux system libraries
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgl1 libglib2.0-0 scrot python3-tk gnome-screenshot
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pyinstaller
+
+      - name: Download MediaPipe model
+        run: python -c "import urllib.request; urllib.request.urlretrieve('https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task','face_landmarker.task')"
+
+      - name: Build with PyInstaller
+        run: pyinstaller eyescroll.spec
+
+      - name: Package (Windows / Linux)
+        if: runner.os != 'macOS'
+        run: python -c "import shutil,glob,os; src=glob.glob('dist/EyeScroll*')[0]; shutil.make_archive('${{ matrix.artifact }}','zip',os.path.dirname(src) or '.', os.path.basename(src))"
+
+      - name: Package (macOS .app)
+        if: runner.os == 'macOS'
+        run: ditto -c -k --keepParent dist/EyeScroll.app ${{ matrix.artifact }}.zip
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: ${{ matrix.artifact }}.zip
+
+      - name: Attach to Release (on tag)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ matrix.artifact }}.zip

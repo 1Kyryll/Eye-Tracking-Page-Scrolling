@@ -1,0 +1,18 @@
+__pycache__/
+dist/
+build/
+*.egg-info/
+*.pyc
+*.pyo
+.DS_Store
+.env
+venv/
+.venv/
+.idea/
+.vscode/
+
+# Downloaded at build/run time (bundled into the app, not committed)
+face_landmarker.task
+
+# Build artifacts produced by the CI packaging step
+EyeScroll-*.zip
