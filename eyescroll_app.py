@@ -48,8 +48,8 @@ RIGHT_IRIS, RIGHT_CORNER_A, RIGHT_CORNER_B = 473, 362, 263
 
 DEFAULT_CONFIG = {
     "scroll_min_step":  4,      # wheel clicks/frame just past the reading zone
-    "scroll_max_step":  90,     # wheel clicks/frame at full gaze deflection
-    "reading_zone":     0.035,  # half-height of the no-scroll band (deviation units)
+    "scroll_max_step":  95,     # wheel clicks/frame at full gaze deflection
+    "reading_zone":     0.02,  # half-height of the no-scroll band (deviation units)
     "gaze_range":       0.10,   # deviation at the screen edge = max scroll speed
     "ema_alpha":        0.6,    # smoothing when looking further out (accelerating)
     "ema_alpha_brake":  0.95,   # smoothing when returning toward center (braking)

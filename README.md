@@ -1,11 +1,43 @@
-# Eye Scroll
+<h1 align="center">👁️ Eye Scroll</h1>
 
-Scroll any window with your eyes. A small webcam-based app that tracks your gaze
-and scrolls the page when you look up or down. Runs quietly in the **system tray**
-on Windows, macOS, and Linux.
+<p align="center">
+  <b>Scroll any page with your eyes. No hands, no hardware — just your webcam.</b><br>
+  Look down to scroll down, look up to scroll up. Works in Chrome, VS Code, chats — anything.
+</p>
 
-> The mouse wheel goes to whatever window is **under the mouse pointer**, so hover
-> the pointer over the page/editor/chat you want to scroll. You don't need to click it.
+<p align="center">
+  <img src="./docs/demo_opt.gif" alt="Eye Scroll demo" width="720">
+</p>
+
+<p align="center">
+  <a href="../../releases/latest"><img src="https://img.shields.io/badge/Download-Windows%20%7C%20macOS%20%7C%20Linux-brightgreen" alt="Download"></a>
+  <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License">
+  <img src="https://img.shields.io/badge/python-3.11-blue" alt="Python 3.11">
+  <img src="https://img.shields.io/badge/built%20with-MediaPipe-orange" alt="MediaPipe">
+</p>
+
+---
+
+**Eye Scroll** is a tiny, free, open-source app that turns your webcam into a hands-free
+scroll wheel. It runs quietly in your **system tray** and works system-wide — no browser
+extension, no special hardware, no setup.
+
+- 🖐️ **Hands-free** — read articles, docs, or code while eating, sketching, or resting your wrists.
+- ♿ **Accessible** — built-in scrolling for anyone who can't easily use a mouse or trackpad.
+- 🪟 **Works everywhere** — Chrome, VS Code, PDFs, chat apps. If it scrolls, this scrolls it.
+- 🧘 **Calm by design** — a center "reading zone" holds the page still while you read.
+- 🔒 **100% local** — all processing is on-device. No video ever leaves your machine.
+
+### ⬇️ Install in 10 seconds
+
+1. **[Download the latest release](../../releases/latest)** for your OS.
+2. Double-click to run. A tray icon appears.
+3. Look straight ahead for 2 seconds while it calibrates — then look up/down to scroll.
+
+> 💡 The scroll goes to whatever window is **under your mouse pointer**, so just hover the
+> pointer over the page you want to scroll. No clicking needed.
+
+⭐ **If this is useful or fun, please star the repo** — it genuinely helps other people find it.
 
 ## How it works
 
@@ -91,3 +123,40 @@ Edit `config.json` in your per-user app folder (created on first run):
 | `gaze_range` | Smaller = reach max speed with less deflection (more sensitive). |
 | `scroll_max_step` | Top scroll speed. |
 | `ema_alpha_brake` | Higher = stops faster when you look back to center (less overshoot). |
+
+## Make the demo GIF (do this first!)
+
+A short looping GIF at the top of the README is the **single biggest driver of stars**
+for a visual tool. Aim for ~6–10 seconds: your eyes moving + a long article scrolling
+in sync. Optionally show your face in a corner so people see it's eye-driven.
+
+1. Record your screen (e.g. [ScreenToGif](https://www.screentogif.com/) on Windows,
+   [Kap](https://getkap.co/) on macOS, [Peek](https://github.com/phw/peek) on Linux).
+2. Keep it small (≤ 720px wide, a few MB) so it loads fast.
+3. Save it as `docs/demo.gif` — the README already points there.
+
+## ⭐ Spread the word
+
+If you want this to reach people, these move the needle far more than anything in the code:
+
+- **Add repo topics** (repo page → ⚙️ next to *About*):
+  `eye-tracking` `accessibility` `computer-vision` `mediapipe` `python` `webcam`
+  `hands-free` `scrolling` `opencv` `assistive-technology`
+- **Write a one-line About** with a link to the release.
+- **Post it** with the GIF — the accessibility + "scroll with your eyes" hook travels well:
+  - **Show HN** (news.ycombinator.com/submit), title:
+    > Show HN: Eye Scroll – scroll any page with your eyes using just a webcam
+  - **Reddit:** r/SideProject, r/programming, r/opensource, r/accessibility
+  - **X/Twitter / Bluesky / LinkedIn:** lead with the GIF, tag #buildinpublic, #accessibility
+
+Sample blurb to paste:
+
+> I built **Eye Scroll**, a free open-source app that lets you scroll any page with your
+> eyes using only your webcam — no extra hardware. It runs in your system tray and works
+> in Chrome, VS Code, PDFs, anything. All processing is on-device. Look down to scroll
+> down, up to scroll up; a center "reading zone" keeps the page still while you read.
+> Windows/macOS/Linux: [link]
+
+## License
+
+[MIT](LICENSE) — free to use, modify, and distribute.
